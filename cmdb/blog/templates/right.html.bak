@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>夸客信息录入系统</title>
+ </head>
+ <body bgcolor="#CEF6EC"> 
+ <p><center><b><font size="6" color="red" face="微软雅黑">信息录入</font></center></b></p>
+<p><center>
+<form action="/index/right.html/" method="post">
+  ___IP___： <input align="center" type="text" name="ip"/><br>
+  HOSTNAME： <input align="center" type="text" name="hostname"/><br>
+  PASSWORD： <input align="center" type="text" name="password"/><br>
+  _LABLE__： <input align="center" type="text" name="lable"/><br>
+  __AREA__： <input align="center" type="text" name="area"/><br>
+ <input align="center" type="submit" value="提交" /> <br>
+</form>
+</center>
+</p>
+<p><center><b><font size="6" color="red" face="微软雅黑">资产展示</font></b></center></p>
+<table width="960" height="80" border="1" align="center" cellspacing="0" cellpadding="0">
+<!--  <caption align="bottom">资产展示</caption> -->
+  <tr bgcolor="pink" align="center">
+    <th>IP</th>
+    <th>HOSTNAME</th>
+    <th>PASSWORD</th>
+    <th>LABLE</th>
+    <th>AREA</th>
+   </tr>
+   {% for line in data  %}
+     <tr align="center">
+      <td>{{ line.ip }}</td>
+      <td>{{ line.hostname }}</td>
+      <td>{{ line.password }}</td>
+      <td>{{ line.lable }}</td>
+      <td>{{ line.area }}</td>
+     </tr>
+  {%  endfor %}
+
+ </body>
+</html>
+

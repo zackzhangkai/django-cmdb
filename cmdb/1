@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>夸客信息录入系统</title>
+ </head>
+ <body bgcolor="#CEF6EC"> 
+<h1>{{head}}hello</h1>
+<form action="/index/right.html/" method="post">
+ 
+<table width="1000" height="60" border="1" align="center" cellspacing="0" cellpadding="0">
+<caption align="top"><b><font size="5" color="black" face="微软雅黑">信息录入</font></b></caption> 
+<tr bgcolor="pink" align="center">
+    <th>IP</th>
+    <th>HOSTNAME</th>
+    <th>PASSWORD</th>
+    <th>LABLE</th>
+    <th>AREA</th>
+    <th>ACTION</th>
+   </tr>
+ <tr align="center">
+      <td><input align="center" type="text" name="ip"/></td>
+      <td><input align="center" type="text" name="hostname"/></td>
+      <td><input align="center" type="text" name="password"/></td>
+      <td><input align="center" type="text" name="lable"/></td>
+      <td><input align="center" type="text" name="area"/></td>
+      <td><input align="center" type="submit" value="提交" /><br>
+   </tr>
+</form>
+<table width="1000" height="80" border="1" align="center" cellspacing="0" cellpadding="0">
+<caption align="top"><b><font size="5" color="black" face="微软雅黑">资产展示</font></b></caption> 
+  <tr bgcolor="pink" align="center">
+    <th>IP</th>
+    <th>HOSTNAME</th>
+    <th>PASSWORD</th>
+    <th>LABLE</th>
+    <th>AREA</th>
+   </tr>
+   {% for line in data  %}
+     <tr align="center">
+      <td>{{ line.ip }}</td>
+      <td>{{ line.hostname }}</td>
+      <td>{{ line.password }}</td>
+      <td>{{ line.lable }}</td>
+      <td>{{ line.area }}</td>
+     </tr>
+  {%  endfor %}
+
+ </body>
+</html>
+
