@@ -12,8 +12,9 @@ def right(request):
     hostname=request.POST.get('hostname',None)
     lable=request.POST.get('lable',None)
     password=request.POST.get('password',None)
+    os=request.POST.get('os',None)
     area=request.POST.get('area',None)
-    models.CmdbInfo.objects.create(ip=ip,hostname=hostname,password=password,lable=lable,area=area)
+    models.CmdbInfo.objects.create(ip=ip,os=os,hostname=hostname,password=password,lable=lable,area=area)
   data=models.CmdbInfo.objects.all()
   return render(request,"right.html",{'data':data})
 

@@ -8,43 +8,68 @@
   <title>{{title}}</title>
  </head>
  <body bgcolor="#CEF6EC"> 
-<form action="/index/right.html/" method="post">
- 
-<table width="1000" height="60" border="1" align="center" cellspacing="0" cellpadding="0">
+
+
+  <div align="right" ><font size="2">搜索关键字<input align="center" type="search" value="search"/></div>
+  <div align="right" ><font size="2"><input align="center" type="file" value="upload"/></div>
+
+<form action="/index/right.html/" method="post" id="form">
+<table width="1340" height="60" border="1" align="center" cellspacing="0" cellpadding="0">
 <caption align="top"><b><font size="5" color="black" face="微软雅黑">信息录入</font></b></caption> 
 <tr bgcolor="pink" align="center">
     <th>IP</th>
     <th>HOSTNAME</th>
     <th>PASSWORD</th>
     <th>LABLE</th>
+    <th>INFO</th>
     <th>AREA</th>
-    <th>ACTION</th>
+    <th>OS</th>
+    <th>RST</th>
+    <th>SUB</th>
    </tr>
  <tr align="center">
-      <td><input align="center" type="text" name="ip"/></td>
+      <td><input id="ip" maxlength="15" align="center" type="text"  name="ip" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" /></td>
       <td><input align="center" type="text" name="hostname"/></td>
       <td><input align="center" type="text" name="password"/></td>
       <td><input align="center" type="text" name="lable"/></td>
-      <td><input align="center" type="text" name="area"/></td>
+      <td><input align="center" type="text" name="info"/></td>
+      <td><input align="center" type="radio" name="area" value="IDC" checked>IDC<br>
+          <input align="center" type="radio" name="area" value="IDC">SH<br>
+          <input align="center" type="radio" name="area" value="IDC">WH<br>
+          </td>
+      <td><input align="center" type="radio" name="os" value="Centos7"/ checked>Centos7<br>
+          <input align="center" type="radio" name="os" value="Centos6"/>Centos6<br>
+          <input align="center" type="radio" name="os" value="Win2012"/>Win2012<br>
+      </td>
+      <td><input align="center" type="reset" value="重置" /><br>
       <td><input align="center" type="submit" value="提交" /><br>
    </tr>
 </form>
-<table width="1000" height="80" border="1" align="center" cellspacing="0" cellpadding="0">
+
+<table width="1348" height="80" border="1" align="center" cellspacing="0" cellpadding="0">
 <caption align="top"><b><font size="5" color="black" face="微软雅黑">资产展示</font></b></caption> 
   <tr bgcolor="pink" align="center">
+    <th>HOSTID</th>
     <th>IP</th>
     <th>HOSTNAME</th>
     <th>PASSWORD</th>
     <th>LABLE</th>
     <th>AREA</th>
+    <th>OS</th>
+    <th>INFO</th>
+    <th>ACTION</th>
    </tr>
    {% for line in data  %}
      <tr align="center">
+      <td>{{ line.id }}</td>
       <td>{{ line.ip }}</td>
       <td>{{ line.hostname }}</td>
       <td>{{ line.password }}</td>
       <td>{{ line.lable }}</td>
       <td>{{ line.area }}</td>
+      <td>{{ line.os }}</td>
+      <td>{{ line.info }}</td>
+      <td><input align="center" type="button" value="删除" /></td>
      </tr>
   {%  endfor %}
 

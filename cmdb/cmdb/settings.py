@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rhozj@5jutw=2_(15^=$k-wu0irbg26xd2-#gi8*$rujw6(ugj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["172.30.33.183","salt.quark.com"]
 

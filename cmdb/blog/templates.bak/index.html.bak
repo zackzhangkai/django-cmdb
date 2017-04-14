@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>夸客信息录入系统</title>
+ </head>
+ <body bgcolor="#CEF6EC"> 
+<ul>
+  <li><a href="http://172.16.250.50/zabbix/zabbix.php?action=dashboard.view" target="_blank">Zabbix 监控官网</a></li><br/>
+  <li><a href="http://172.30.30.77/qcredit-frontal" target="_blank">IDC审核系统</a></li><br/>
+  <li><a href="http://qcredit.quark.com/qcredit-frontal" target="_blank">SH审核系统</a></li><br/>
+  <li><a href="http://qcredit-wh.quark.com/qcredit-frontal" target="_blank">WH审核系统</a></li><br/>
+  <li><a href="http://172.30.33.88:8080/" target="_blank">Jenkins[172.30.33.88]</a></li><br/>
+  <li><a href="http://itop.quarkfinance.com" target="_blank">ITOP</a></li><br>
+</ul>
+ <p><center><b>   <font size="6" color="red" face="微软雅黑">信息录入</font>  </center></b>
+ </p>
+<p><center>
+<form action="/index/" method="post">
+  ___IP___： <input type="text" name="ip"/><br>
+  HOSTNAME： <input type="text" name="hostname"/><br>
+  PASSWORD： <input type="text" name="password"/><br>
+  _LABLE__： <input type="text" name="lable"/><br>
+  __AREA__： <input type="text" name="area"/><br>
+ <input type="submit" value="提交" /> <br>
+</form>
+</center>
+</p>
+<p><center><b>
+<font size="6" color="red" face="微软雅黑">资产展示</font>
+</b></center></p>
+<table width="960" height="200" border="1" align="center" cellspacing="0" cellpadding="0">
+<!--  <caption align="bottom">资产展示</caption> -->
+  <tr bgcolor="pink" align="center">
+    <th>IP</th>
+    <th>HOSTNAME</th>
+    <th>PASSWORD</th>
+    <th>LABLE</th>
+    <th>AREA</th>
+   </tr>
+   {% for line in data  %}
+     <tr align="center">
+      <td>{{ line.ip }}</td>
+      <td>{{ line.hostname }}</td>
+      <td>{{ line.password }}</td>
+      <td>{{ line.lable }}</td>
+      <td>{{ line.area }}</td>
+     </tr>
+  {%  endfor %}
+ </body>
+</html>
+

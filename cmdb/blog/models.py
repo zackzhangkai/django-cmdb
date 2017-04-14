@@ -5,6 +5,7 @@ from django.db import models
 class CmdbInfo(models.Model):
   ip=models.CharField(max_length=250,default='192.168.0.1')
   hostname=models.CharField(max_length=250,default="hostname")
+  os=models.CharField(max_length=250,default="os")
   password=models.CharField(max_length=250,default='password')
   lable=models.CharField(max_length=250,default='lable')
   area=models.CharField(max_length=250,default='area')
