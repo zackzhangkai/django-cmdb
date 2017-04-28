@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rhozj@5jutw=2_(15^=$k-wu0irbg26xd2-#gi8*$rujw6(ugj'
+SECRET_KEY = '2qfny75480d8@6!l_u7_nujnnqq=tw5+2&mq59j!91**p-%*w!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["172.30.33.183","salt.quark.com"]
+ALLOWED_HOSTS = ["salt.quark.com","172.30.33.183",]
 
 
 # Application definition
@@ -37,14 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -76,12 +76,14 @@ WSGI_APPLICATION = 'cmdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'salt',
-        'USER': 'root',
-        'PASSWORD': 'PrdQuark@123',
-        'HOST': '172.30.33.170',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'salt',
+    #    'USER': 'root',
+    #    'PASSWORD': 'PrdQuark@123',
+    #    'HOST': '172.30.33.170',
+    #    'PORT': '3306',
     }
 }
 

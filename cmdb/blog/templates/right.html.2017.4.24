@@ -8,27 +8,15 @@
   <title>{{title}}</title>
  </head>
  <body bgcolor="#CEF6EC"> 
-<!--  <div align="right" ><font size="2">搜索关键字<input align="center" type="search" value="search"/></div>-->
-        <form method="POST" action="/right.html/" enctype='multipart/form-data'>
-            {% csrf_token %}
-            <table align="left" border="0" cellspacing="0" cellpadding="0">{{ data_post_save }}</table>
-            <input type="reset" value="重置"><br>
-            <input type="submit" id="save" name="save" value="save"><br>
-            <a href="http://salt.quark.com:7990/upload/" target="_blank">upload</a><br>
-
-        </form>
 <!--
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript">
- $("#save").on("click",function(){
-    $("#submit_type").val("save");
- });
-  $("#upload").on("click",function(){
-    $("#submit_type").val("upload");
- })
-</script>
+<form action="/index/right.html/" method="POST">
+  {{ form.as_p }}
+  <input type="submit" />
+</form>
 -->
-<!--
+  <div align="right" ><font size="2">搜索关键字<input align="center" type="search" value="search"/></div>
+  <div align="right" ><font size="2"><input align="center" type="file" value="upload"/></div>
+
 <form action="/right.html/" method="post" id="form">{% csrf_token %}
 <table width="1340" height="60" border="1" align="center" cellspacing="0" cellpadding="0">
 <caption align="top"><b><font size="5" color="black" face="微软雅黑">信息录入</font></b></caption> 
@@ -44,7 +32,7 @@
     <th>SUB</th>
    </tr>
  <tr align="center">
-     <td><input maxlength="15" align="center" type="text"  name="ip"/></td>
+      <td><input maxlength="15" align="center" type="text"  name="ip" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" /></td>
       <td><input align="center" type="text" name="hostname"/></td>
       <td><input align="center" type="text" name="password"/></td>
       <td><input align="center" type="text" name="lable"/></td>
@@ -59,10 +47,8 @@
       </td>
       <td><input align="center" type="reset" value="重置" /><br>
       <td><input id="btn" align="center" type="submit" value="提交" /><br>
-  
-
+   </tr>
 </form>
--->
 <table width="1348" height="80" border="1" align="center" cellspacing="0" cellpadding="0">
 <caption align="top"><b><font size="5" color="black" face="微软雅黑">资产展示</font></b></caption> 
   <tr bgcolor="pink" align="center">
@@ -76,7 +62,7 @@
     <th>INFO</th>
     <th>ACTION</th>
    </tr>
-   {% for line in data_get  %}
+   {% for line in data  %}
      <tr align="center">
       <td>{{ line.id }}</td>
       <td>{{ line.ip }}</td>

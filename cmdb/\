@@ -23,10 +23,10 @@ class LoadToDBForm(forms.ModelForm):
 
 
 class CmdbInfo(models.Model):
-  ip=models.GenericIPAddressField()
-  hostname=models.CharField(max_length=250)
-  password=models.CharField(max_length=250)
-  lable=models.CharField(max_length=250)
+  ip=models.GenericIPAddressField(blank=True)
+  hostname=models.CharField(max_length=250,blank=True)
+  password=models.CharField(max_length=250,blank=True)
+  lable=models.CharField(max_length=250,blank=True)
   IDC = 'IDC'
   SH = 'SH'
   WH = 'WH'

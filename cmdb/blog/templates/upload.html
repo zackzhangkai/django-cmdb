@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title> upload </title>
+ </head>
+ <body bgcolor="#CEF6EC"> 
+        <form method="POST" action="/upload/" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ data_post_upload.as_p}} 
+            <input type="reset" value="重置"><br>
+            <input type="submit" id="upload" name="upload" value="upload"><br>
+            <a href="http://salt.quark.com:7990/right.html">返回主页</a>
+        </form>
+ </body>
+</html>
+

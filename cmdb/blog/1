@@ -19,17 +19,17 @@ def postok(request):
 
 def upload(request):
   if request.method == 'POST':
-    data_post_upload = UploadFileForm(request.POST,request.FILES)
+    data_post_upload = UploadFileForm(request.FILES)
     #判断上传数据是否合法
     if data_post_upload.is_valid():
     #  return HttpResponse(data_post_upload)
       data_post_upload.save()
-      return HttpResponseRedirect('/postok/')
+      return HttpResponseRedirect('/upload/')
     else:
       return HttpResponse('upload error')
   else:
     data_post_upload = UploadFileForm()
-  return render(request,'upload.html',{'data_post_upload':data_post_upload},)
+  return render(request,'post.html',{'data_post_upload':data_post_upload},)
 #def handle_upload_file(f):
 
 def right(request):
@@ -38,7 +38,7 @@ def right(request):
      if data_post_save.is_valid():
        ip = data_post_save.cleaned_data['ip']
        data_post_save.save()
-       return HttpResponseRedirect('/postok/')
+       return HttpResponseRedirect('/post/')
      else:
        return HttpResponse('save error')
   else:
